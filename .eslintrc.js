@@ -5,29 +5,16 @@ module.exports = {
     node: true,
     es6: true,
   },
-  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
-    requireConfigFile: false,
-    babelOptions: {
-      presets: ['@babel/preset-react']
-    },
   },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
+    'eslint:recommended'
   ],
-  plugins: ['react', 'react-hooks'],
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
   rules: {
     'accessor-pairs': 'off',
     'array-bracket-newline': 'off',
