@@ -1,0 +1,115 @@
+{
+  "label": "Noom Hero Section",
+  "description": "A responsive hero section for Noom's website with customizable content, CTAs, and trust badges.",
+  "css_assets": [
+    {
+      "name": "hero",
+      "path": "hero.css"
+    }
+  ],
+  "js_assets": [],
+  "other_assets": [],
+  "is_available_for_new_content": true,
+  "fields": [
+    {
+      "type": "text",
+      "name": "heading",
+      "label": "Main Heading",
+      "default": "Transform your health journey",
+      "required": true,
+      "help_text": "Main headline for the hero section"
+    },
+    {
+      "type": "text",
+      "name": "subheading",
+      "label": "Subheading",
+      "default": "Personalized weight loss and healthy living made simple with Noom's proven psychology-based approach.",
+      "required": false,
+      "help_text": "Supporting text below the main heading"
+    },
+    {
+      "type": "group",
+      "name": "cta_buttons",
+      "label": "Call-to-Action Buttons",
+      "repeating": true,
+      "max": 2,
+      "help_text": "Add up to 2 CTA buttons (primary and secondary)",
+      "fields": [
+        {
+          "type": "text",
+          "name": "button_text",
+          "label": "Button Text",
+          "default": "Get Started",
+          "required": true
+        },
+        {
+          "type": "text",
+          "name": "button_link",
+          "label": "Button Link",
+          "default": "/get-started",
+          "required": true
+        },
+        {
+          "type": "choice",
+          "name": "button_style",
+          "label": "Button Style",
+          "choices": [
+            ["primary", "Primary (Green)"],
+            ["outline", "Outline (White)"]
+          ],
+          "default": "primary"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "name": "trust_badges",
+      "label": "Trust Badges",
+      "repeating": true,
+      "max": 3,
+      "help_text": "Add trust badges (e.g., ratings, awards, certifications)",
+      "fields": [
+        {
+          "type": "image",
+          "name": "icon",
+          "label": "Badge Icon",
+          "required": false
+        },
+        {
+          "type": "text",
+          "name": "text",
+          "label": "Badge Text",
+          "default": "4.8/5 on App Store"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "image_field",
+      "label": "Hero Image",
+      "show_loading": true,
+      "required": false,
+      "help_text": "Recommended size: 1200x800px (will be optimized for different devices)"
+    },
+    {
+      "type": "color",
+      "name": "background_color",
+      "label": "Background Color",
+      "default": {
+        "color": "#f5f5f5"
+      },
+      "show_opacity_selector": false,
+      "help_text": "Default: Noom Light Gray (#f5f5f5)"
+    },
+    {
+      "type": "color",
+      "name": "text_color",
+      "label": "Text Color",
+      "default": {
+        "color": "#1a1a1a"
+      },
+      "show_opacity_selector": false,
+      "help_text": "Default: Noom Black (#1a1a1a)"
+    }
+  ]
+}

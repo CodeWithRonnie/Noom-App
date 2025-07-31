@@ -1,0 +1,191 @@
+/*
+
+   This file contains all the styles for the hero module.
+   It includes responsive design and theming variables.
+   
+   Noom Brand Colors:
+   - Primary Green: #00b289
+   - Dark Green: #007a63
+   - Light Green: #e6f5f2
+   - Black: #1a1a1a
+   - Dark Gray: #4a4a4a
+   - Light Gray: #f5f5f5
+   - White: #ffffff
+*/
+
+:root {
+  /* Noom Brand Colors */
+  --noom-green: #00b289;
+  --noom-dark-green: #007a63;
+  --noom-light-green: #e6f5f2;
+  --noom-black: #1a1a1a;
+  --noom-dark-gray: #4a4a4a;
+  --noom-light-gray: #f5f5f5;
+  --noom-white: #ffffff;
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  /* Spacing */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2rem;     /* 32px */
+  --space-xl: 3rem;     /* 48px */
+  --space-2xl: 4rem;    /* 64px */
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 400ms ease-in-out;
+  
+  /* Theme variables */
+  --primary-color: var(--noom-green);
+  --primary-hover: var(--noom-dark-green);
+  --secondary-color: var(--noom-dark-gray);
+  --light-bg: var(--noom-light-gray);
+  --text-color: var(--noom-black);
+  --text-light: var(--noom-dark-gray);
+  --container-max-width: 1280px;
+}
+
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  min-height: 80vh;
+  text-align: center;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+}
+
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.subheading {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Secondary button style */
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: rgba(0, 178, 137, 0.1);
+  transform: translateY(-2px);
+}
+
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    gap: 2rem;
+  }
+  
+  .hero-content {
+    flex: 1;
+    padding-right: 2rem;
+  }
+  
+  .cta-buttons {
+    justify-content: flex-start;
+  }
+  
+  .hero-image {
+    flex: 1;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+  
+  .subheading {
+    font-size: 1.1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}

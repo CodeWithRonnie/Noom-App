@@ -1,16 +1,53 @@
-<div class="hero" style="background-color: {{ module.background_color.color }}; color: {{ module.text_color.color }};">
+<!--
+  A responsive hero section for Noom's website.
+  Features:
+  - Customizable heading and subheading
+  - Multiple CTA buttons with different styles
+  - Optional hero image
+  - Responsive layout for all devices
+  - Noom brand colors and typography
+-->
+<div class="hero" style="background-color: {{ module.background_color.color || 'var(--noom-light-gray)' }}; color: {{ module.text_color.color || 'var(--noom-black)' }};">
   <div class="hero-content">
-    <h1>{{ module.heading }}</h1>
-    <p class="subheading">{{ module.subheading }}</p>
-    <div class="cta-buttons">
-      {% for button in module.cta_buttons %}
-        <a href="{{ button.button_link.url.href }}" class="btn btn-{{ button.button_style }}">
-          {{ button.button_text }}
-        </a>
-      {% endfor %}
-    </div>
+    <h1 class="hero-heading">{{ module.heading || 'Transform your health journey' }}</h1>
+    {% if module.subheading %}
+      <p class="subheading">{{ module.subheading }}</p>
+    {% endif %}
+    
+    {% if module.cta_buttons %}
+      <div class="cta-buttons">
+        {% for button in module.cta_buttons %}
+          <a href="{{ button.button_link || '#' }}" 
+             class="btn btn-{{ button.button_style || 'primary' }}"
+             {% if button.button_style == 'primary' %}data-noom="cta-primary"{% else %}data-noom="cta-secondary"{% endif %}>
+            {{ button.button_text || 'Get Started' }}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+    {% if module.trust_badges %}
+      <div class="trust-badges">
+        {% for badge in module.trust_badges %}
+          <div class="trust-badge">
+            {% if badge.icon %}
+              <img src="{{ badge.icon.src }}" alt="{{ badge.icon.alt }}" class="badge-icon">
+            {% endif %}
+            <span class="badge-text">{{ badge.text }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
+  
   {% if module.image_field.src %}
-    <img src="{{ module.image_field.src }}" alt="{{ module.image_field.alt }}" class="hero-image">
+    <div class="hero-image-container">
+      <img src="{{ module.image_field.src }}" 
+           alt="{{ module.image_field.alt || 'Noom Health App' }}" 
+           class="hero-image"
+           loading="lazy"
+           width="600"
+           height="400">
+    </div>
   {% endif %}
 </div>
