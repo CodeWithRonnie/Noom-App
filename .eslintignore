@@ -1,0 +1,13 @@
+# Ignore HTML files
+*.html
+
+# Ignore CSS files
+*.css
+
+# Ignore node_modules
+node_modules/
+
+# Ignore build directories
+build/
+dist/
+.hubspot/

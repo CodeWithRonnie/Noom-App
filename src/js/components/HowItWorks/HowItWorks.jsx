@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import '../styles/HowItWorks.css';
+const React = require('react');
+const PropTypes = require('prop-types');
+require('../styles/HowItWorks.css');
 
 /**
  * HowItWorks Component
@@ -101,4 +101,4 @@ HowItWorks.propTypes = {
   textColor: PropTypes.string
 };
 
-export default HowItWorks;
+module.exports = HowItWorks;

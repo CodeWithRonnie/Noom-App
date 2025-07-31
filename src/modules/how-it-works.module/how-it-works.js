@@ -1,15 +1,15 @@
 // How It Works Module - React Wrapper
 // This file renders the React component within the HubSpot CMS
 
-import React from 'react';
-import { render } from 'react-dom';
-import HowItWorks from '../../js/components/HowItWorks/HowItWorks';
+const React = require('react');
+const { render } = require('react-dom');
+const HowItWorks = require('../../js/components/HowItWorks/HowItWorks').default;
 
 // Import styles
-import '../../js/styles/HowItWorks.css';
+require('../../js/styles/HowItWorks.css');
 
 // Initialize the component when the DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   const containers = document.querySelectorAll('.how-it-works-module');
   
   containers.forEach(container => {
