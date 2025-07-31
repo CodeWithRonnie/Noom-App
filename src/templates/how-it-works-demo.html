@@ -1,0 +1,67 @@
+<!--
+  Template: How It Works Demo
+  Description: A demo page for the How It Works React component
+-->
+{% module "how_it_works_demo" path='../../modules/how-it-works.module/how-it-works.html',
+  heading="How Noom Works",
+  subheading="Our psychology-based approach helps you build better habits, one day at a time.",
+  steps=[
+    {
+      "title": "Take your assessment",
+      "description": "Answer a few questions to personalize your program.",
+      "icon": "📝"
+    },
+    {
+      "title": "Get your personalized plan",
+      "description": "Based on your goals and preferences.",
+      "icon": "🎯"
+    },
+    {
+      "title": "Learn and track daily",
+      "description": "Build healthy habits with our psychology-based approach.",
+      "icon": "📱"
+    },
+    {
+      "title": "Reach your goals",
+      "description": "See real results and maintain your progress long-term.",
+      "icon": "🏆"
+    }
+  ],
+  background_color={
+    "color": "#ffffff"
+  },
+  text_color={
+    "color": "#1a1a1a"
+  }
+%}
+
+{% widget_block rich_text "how_it_works_rich_text" overrideable=True, label='How It Works Demo' %}
+  {% widget_attribute "html" %}
+    <div style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+      <h1>How It Works Demo</h1>
+      <p>This page demonstrates the How It Works React component in action. The component is fully responsive and customizable through the HubSpot CMS.</p>
+      
+      <h2>Features</h2>
+      <ul>
+        <li>Responsive design that works on all devices</li>
+        <li>Animated step cards with hover effects</li>
+        <li>Customizable colors and content</li>
+        <li>Easy to configure in the HubSpot CMS</li>
+      </ul>
+      
+      <h2>How to Use</h2>
+      <ol>
+        <li>Add the "How It Works (React)" module to your page</li>
+        <li>Configure the heading, subheading, and steps</li>
+        <li>Customize the colors to match your brand</li>
+        <li>Publish and enjoy!</li>
+      </ol>
+    </div>
+  {% end_widget_attribute %}
+{% end_widget_block %}
+
+{% widget_container "footer" %}
+  <div style="text-align: center; padding: 2rem; color: #6c757d; font-size: 0.875rem;">
+    <p>© 2025 Noom Clone. All rights reserved.</p>
+  </div>
+{% end_widget_container %}

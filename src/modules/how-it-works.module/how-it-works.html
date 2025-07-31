@@ -1,0 +1,16 @@
+<!-- 
+  How It Works Module - HTML Template
+  Renders the React component with HubSpot CMS data
+-->
+<div 
+  class="how-it-works-module"
+  data-heading="{{ module.heading }}"
+  data-subheading="{{ module.subheading }}"
+  data-bg-color="{{ module.background_color.color }}"
+  data-text-color="{{ module.text_color.color }}"
+  data-steps='{{ module.steps|tojson|safe }}'>
+  <!-- React content will be rendered here -->
+</div>
+
+<!-- Include the module's JavaScript -->
+{{ require_js(get_asset_url('../../js/modules/how-it-works.module/how-it-works.js'), 'footer') }}
