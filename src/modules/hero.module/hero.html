@@ -1,0 +1,16 @@
+<div class="hero" style="background-color: {{ module.background_color.color }}; color: {{ module.text_color.color }};">
+  <div class="hero-content">
+    <h1>{{ module.heading }}</h1>
+    <p class="subheading">{{ module.subheading }}</p>
+    <div class="cta-buttons">
+      {% for button in module.cta_buttons %}
+        <a href="{{ button.button_link.url.href }}" class="btn btn-{{ button.button_style }}">
+          {{ button.button_text }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% if module.image_field.src %}
+    <img src="{{ module.image_field.src }}" alt="{{ module.image_field.alt }}" class="hero-image">
+  {% endif %}
+</div>
