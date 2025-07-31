@@ -1,0 +1,79 @@
+{
+  "label": "How It Works (React)",
+  "description": "A responsive section displaying the Noom program steps with animations.",
+  "js_assets": [
+    {
+      "name": "how-it-works-module",
+      "path": "how-it-works.js"
+    }
+  ],
+  "css_assets": [],
+  "other_assets": [],
+  "is_available_for_new_content": true,
+  "fields": [
+    {
+      "type": "text",
+      "name": "heading",
+      "label": "Heading",
+      "default": "How Noom Works",
+      "required": true
+    },
+    {
+      "type": "text",
+      "name": "subheading",
+      "label": "Subheading",
+      "default": "Our psychology-based approach helps you build better habits, one day at a time.",
+      "required": false
+    },
+    {
+      "type": "group",
+      "name": "steps",
+      "label": "Steps",
+      "repeating": true,
+      "required": true,
+      "help_text": "Add up to 6 steps to display in the how it works section.",
+      "fields": [
+        {
+          "type": "text",
+          "name": "title",
+          "label": "Step Title",
+          "required": true
+        },
+        {
+          "type": "text",
+          "name": "description",
+          "label": "Step Description",
+          "required": true
+        },
+        {
+          "type": "text",
+          "name": "icon",
+          "label": "Step Icon (Emoji)",
+          "default": "✅",
+          "required": false,
+          "help_text": "Enter an emoji to represent this step"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "name": "background_color",
+      "label": "Background Color",
+      "default": {
+        "color": "#ffffff"
+      },
+      "show_opacity_selector": false,
+      "help_text": "Background color for the section"
+    },
+    {
+      "type": "color",
+      "name": "text_color",
+      "label": "Text Color",
+      "default": {
+        "color": "#1a1a1a"
+      },
+      "show_opacity_selector": false,
+      "help_text": "Text color for the section"
+    }
+  ]
+}
