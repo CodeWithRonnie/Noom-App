@@ -1,17 +1,39 @@
+name: Deploy to HubSpot
+
 on:
   push:
-    branches:
-    - main
+    branches: [main]
+  workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.3
-      - name: HubSpot Deploy Action
-        uses: HubSpot/hubspot-cms-deploy-action@v1.5
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js 18.x
+        uses: actions/setup-node@v3
         with:
-          src_dir: src
-          dest_dir: cms-theme-boilerplate
-          portal_id: ${{ secrets.hubspot_portal_id }}
-          personal_access_key: ${{ secrets.hubspot_personal_access_key }}
+          node-version: '18.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install -g @hubspot/cli
+
+      - name: Create hubspot.config.yml
+        run: |
+          echo "defaultPortal: ${{ secrets.HUBSPOT_PORTAL_ID }}
+portals:
+  - name: Production
+    portalId: ${{ secrets.HUBSPOT_PORTAL_ID }}
+    authType: personalaccesskey
+    auth:
+      tokenInfo:
+        accessToken: ${{ secrets.HUBSPOT_PERSONAL_ACCESS_KEY }}
+" > hubspot.config.yml
+
+      - name: Deploy to HubSpot
+        run: hs upload src cms-theme-boilerplate
+        env:
+          HUBSPOT_PORTAL_ID: ${{ secrets.HUBSPOT_PORTAL_ID }}
+          HUBSPOT_PERSONAL_ACCESS_KEY: ${{ secrets.HUBSPOT_PERSONAL_ACCESS_KEY }}
